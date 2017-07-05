@@ -5,6 +5,16 @@ var express = require('express');
 // 创建 express 的服务器实例
 var app = express();
 
+// 1.导入express 模块
+var session = require('express-session');
+// 2. 注册 session 中间件
+app.use(session({
+  secret: '12345*&……%￥#@', // 加密 Session 时候的追加的加密字符串
+  resave: false, // 是否允许session重新设置
+  saveUninitialized: true // 是否设置session在存储容器中可以给修改
+}));
+
+
 // 导入  解析 post  表单数据中的在 中间体
 var bodyParser = require('body-parser');
 // 注册  解析表单  post  数据的  表单

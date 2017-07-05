@@ -22,14 +22,10 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <% if(islogin) {%>
                 <div class="navbar-form navbar-right">
-                    <a href="/register" class="btn btn-success">注册</a>
-                    <a href="/login" class="btn btn-primary">登录</a>
-                </div>
-
-                <div class="navbar-form navbar-right">
-                    <a href="/" class="btn btn-warning">欢迎&nbsp;<strong>***</strong></a>
-                    <a href="/" class="btn btn-danger">注销</a>
+                    <a href="javascript:void(0)" class="btn btn-warning">欢迎&nbsp;<strong><%= user.nickname %></strong></a>
+                    <a href="/logout" class="btn btn-danger">注销</a>
                 </div>
 
 
@@ -42,6 +38,12 @@
                         </ul>
                     </li>
                 </ul>
+                <% } else {%>
+                <div class="navbar-form navbar-right">
+                    <a href="/register" class="btn btn-success">注册</a>
+                    <a href="/login" class="btn btn-primary">登录</a>
+                </div>
+                <% } %>
             </div>
             <!-- /.navbar-collapse -->
         </div>
